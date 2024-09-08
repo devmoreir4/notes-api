@@ -1,5 +1,4 @@
-const knex = require("../database/knex")
-const AppError = require("../utils/AppError")
+const knex = require("../database/knex");
 
 class NotesController {
 
@@ -95,7 +94,7 @@ class NotesController {
             }
         });
 
-        return response.json(notesWithTags)
+        return response.json(notesWithTags);
     }   
 }
 
