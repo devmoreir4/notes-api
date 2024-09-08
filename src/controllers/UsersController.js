@@ -1,6 +1,7 @@
 const { hash, compare } = require('bcryptjs');
 const sqliteConnection = require('../database/sqlite');
 const AppError = require('../utils/AppError');
+const knex = require('../database/knex');
 
 class UsersController {
     async create(request, response) {
@@ -67,6 +68,40 @@ class UsersController {
         );
 
         return response.status(200).json();
+    }
+
+    async show(request, response) {
+        const { id } = request.params;
+        const database = await sqliteConnection();
+
+        const user = await database.get('SELECT * FROM users WHERE id = (?)', [id]);
+
+        if (!user) {
+            throw new AppError('User not found.', 404);
+        }
+
+        response.json({name: user.name, email: user.email});
+    }
+
+    async delete(request, response) {
+        const { id } = request.params;
+        const database = await sqliteConnection();
+        
+        const user = await database.get('SELECT * FROM users WHERE id = (?)', [id]);
+        
+        if (!user) {
+            throw new AppError('User not found.', 404);
+        }
+
+        const checkUserNote = await knex("notes").where({ user_id:id });
+
+        if(checkUserNote){
+           await knex("notes").where({ user_id:id }).delete();
+        }
+
+        await database.run('DELETE FROM users WHERE id = (?)', [id]);
+       
+        response.json({ message:"User deleted successfully!" });
     }
 }
 
