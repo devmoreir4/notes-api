@@ -51,7 +51,7 @@ O diagrama abaixo representa o modelo relacional da API:
     npm install
     ```
 
-3.  Configure as variáveis de ambiente:
+3.  Configure as variáveis de ambiente:<br>
     Crie um arquivo `.env` na raiz do projeto baseado no arquivo `.env.example`:
 
     ```ssh
@@ -65,8 +65,8 @@ O diagrama abaixo representa o modelo relacional da API:
     ```
 
 4.  Crie o banco de dados e execute as migrações:
-    - Crie o banco de dados no PostgreSQL (se ainda não existir):
-      - Pode ser criado via pgAdmin ou via Terminal (PSQL).
+    - Crie o banco de dados no PostgreSQL (se ainda não existir):<br>
+    Pode ser criado via pgAdmin ou via Terminal (PSQL).
     ```ssh
     psql -U <username> -c "CREATE DATABASE notes_db;"
     ```
