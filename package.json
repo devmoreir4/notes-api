@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
-    "migrate": "npx knex migrate:latest"
+    "migrate": "npx knex migrate:latest",
+    "build:docs": "node -e \"console.log(JSON.stringify(require('./src/swagger').specs, null, 2))\" > docs/swagger.json"
   },
   "author": "devmoreir4",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "swagger-ui-dist": "^5.20.1"
   }
 }

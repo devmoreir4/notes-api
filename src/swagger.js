@@ -12,7 +12,8 @@ const options = {
     info: {
       title: "API de Gerenciamento de Notas",
       version: "1.0.0",
-      description: "API para gerenciamento de usuários, notas e tags",
+      description:
+        "Esta API é um backend desenvolvido com Node.js e Express para gerenciar notas, usuários, tags e links.",
     },
     servers: [
       {
