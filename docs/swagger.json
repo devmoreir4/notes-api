@@ -3,7 +3,7 @@
   "info": {
     "title": "API de Gerenciamento de Notas",
     "version": "1.0.0",
-    "description": "Esta API é um backend desenvolvido com Node.js e Express para gerenciar notas, usuários, tags e links."
+    "description": "REST API desenvolvida em Node.js para gerenciar notas, usuários, tags e links."
   },
   "servers": [
     {
@@ -15,7 +15,9 @@
     "/notes": {
       "get": {
         "summary": "Lista as notas com filtros opcionais",
-        "tags": ["Notes"],
+        "tags": [
+          "Notes"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -53,7 +55,9 @@
     "/notes/{user_id}": {
       "post": {
         "summary": "Cria uma nova nota para um usuário",
-        "tags": ["Notes"],
+        "tags": [
+          "Notes"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -72,7 +76,12 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["title", "description", "tags", "links"],
+                "required": [
+                  "title",
+                  "description",
+                  "tags",
+                  "links"
+                ],
                 "properties": {
                   "title": {
                     "type": "string"
@@ -107,7 +116,9 @@
     "/notes/{id}": {
       "get": {
         "summary": "Exibe os detalhes de uma nota",
-        "tags": ["Notes"],
+        "tags": [
+          "Notes"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -130,7 +141,9 @@
       },
       "delete": {
         "summary": "Exclui uma nota",
-        "tags": ["Notes"],
+        "tags": [
+          "Notes"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -155,7 +168,9 @@
     "/tags/{user_id}": {
       "get": {
         "summary": "Lista as tags de um usuário",
-        "tags": ["Tags"],
+        "tags": [
+          "Tags"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -180,7 +195,9 @@
     "/users": {
       "post": {
         "summary": "Cria um novo usuário",
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "requestBody": {
           "description": "Dados do usuário a ser criado",
           "required": true,
@@ -188,7 +205,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name", "email", "password"],
+                "required": [
+                  "name",
+                  "email",
+                  "password"
+                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -220,7 +241,9 @@
     "/users/{id}": {
       "put": {
         "summary": "Atualiza os dados de um usuário existente",
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -275,7 +298,9 @@
       },
       "get": {
         "summary": "Exibe os dados de um usuário",
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "parameters": [
           {
             "in": "path",
@@ -313,7 +338,9 @@
       },
       "delete": {
         "summary": "Exclui um usuário",
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "parameters": [
           {
             "in": "path",

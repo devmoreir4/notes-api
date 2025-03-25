@@ -7,7 +7,7 @@
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
     "migrate": "npx knex migrate:latest",
-    "build:docs": "node -e \"console.log(JSON.stringify(require('./src/swagger').specs, null, 2))\" > docs/swagger.json"
+    "build:swagger": "node src/generate-swagger.js"
   },
   "author": "devmoreir4",
   "license": "ISC",
