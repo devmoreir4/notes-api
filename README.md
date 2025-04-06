@@ -12,6 +12,7 @@ Esta API é um backend desenvolvido com Node.js e Express para gerenciar notas, 
 - **Knex.js**: Query builder e ferramenta de migração SQL.
 - **PostgreSQL**: Banco de dados relacional.
 - **Swagger**: Ferramenta para gerar documentação interativa da API.
+- **Docker e Docker Compose**: Utilizados para criar, gerenciar e orquestrar containers da aplicação.
 
 ## ✨ Funcionalidades
 
@@ -35,8 +36,9 @@ O diagrama abaixo representa o modelo relacional da API:
 
 - Node.js (recomendado: versão 14 ou superior)
 - PostgreSQL instalado e configurado
+- Docker e Docker Compose instalados
 
-### Passos para executar o projeto:
+### Execução sem Docker
 
 1.  Clone o repositório:
 
@@ -66,7 +68,7 @@ O diagrama abaixo representa o modelo relacional da API:
 
 4.  Crie o banco de dados e execute as migrações:
     - Crie o banco de dados no PostgreSQL (se ainda não existir):<br>
-    Pode ser criado via pgAdmin ou via Terminal (PSQL).
+    - Pode ser criado via pgAdmin ou via Terminal (PSQL).
     ```ssh
     psql -U <username> -c "CREATE DATABASE notes_db;"
     ```
@@ -78,8 +80,23 @@ O diagrama abaixo representa o modelo relacional da API:
     ```ssh
     npm start
     ```
-6.  Acesse a documentação interativa:<br>
-    Abra o navegador e acesse http://localhost:3000/api-docs para visualizar e testar os endpoints gerados pelo Swagger.
+6.  Acesse a API e a documentação:
+    - A API estará disponível em: http://localhost:3000
+    - A documentação interativa do Swagger pode ser acessada em: http://localhost:3000/api-docs
+
+### Execução com Docker e Docker Compose
+
+1.  Construa e inicie os containers:
+    ```ssh
+    docker-compose up --build
+    ```
+2.  Execute as migrações:
+    ```ssh
+    docker exec -it notes_api npm run migrate
+    ```
+3.  Acesse a API e a documentação:
+    - A API estará disponível em: http://localhost:3000
+    - A documentação interativa do Swagger pode ser acessada em: http://localhost:3000/api-docs
 
 ## 📄 Documentação da API
 
