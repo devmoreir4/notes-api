@@ -5,13 +5,13 @@ dotenv.config();
 
 module.exports = {
   development: {
-    client: process.env.DB_CLIENT || "pg",
+    client: process.env.DB_CLIENT,
     connection: {
-      user: process.env.DB_USER || "postgres",
-      host: process.env.DB_HOST || "localhost",
-      password: process.env.DB_PASSWORD || "123",
-      database: process.env.DB_NAME || "notes_db",
-      port: process.env.DB_PORT || 5432,
+      user: process.env.DB_USER,
+      host: process.env.DB_HOST,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      port: process.env.DB_PORT,
     },
     migrations: {
       directory: path.resolve(

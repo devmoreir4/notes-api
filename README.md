@@ -22,14 +22,6 @@ Esta API é um backend desenvolvido com Node.js e Express para gerenciar notas, 
 - **Busca Avançada**: Filtragem de notas por título (case-insensitive) e tags.
 - **Migrações**: Gerenciamento de tabelas utilizando Knex.js (criação, rollback, etc.).
 
-## 🛠️ Modelo Entidade Relacionamento
-
-O diagrama abaixo representa o modelo relacional da API:
-
-<div align="center">
-  <img src="./.github/diagram.png" title="Project Diagram" alt="Project Diagram">
-</div>
-
 ## 🚀 Instalação e Execução
 
 ### Pré-requisitos
@@ -59,10 +51,10 @@ O diagrama abaixo representa o modelo relacional da API:
     ```ssh
     PORT=3000
     DB_CLIENT=pg
-    DB_USER=postgres
+    DB_USER=devmoreir4
     DB_HOST=localhost
     DB_NAME=notes_db
-    DB_PASSWORD=123
+    DB_PASSWORD=notes123
     DB_PORT=5432
     ```
 
@@ -82,7 +74,7 @@ O diagrama abaixo representa o modelo relacional da API:
     ```
 6.  Acesse a API e a documentação:
     - A API estará disponível em: http://localhost:3000
-    - A documentação interativa do Swagger pode ser acessada em: http://localhost:3000/api-docs
+    - A documentação pode ser acessada em: http://localhost:3000/api-docs
 
 ### Execução com Docker e Docker Compose
 
@@ -92,11 +84,18 @@ O diagrama abaixo representa o modelo relacional da API:
     ```
 2.  Execute as migrações:
     ```ssh
-    docker exec -it notes_api npm run migrate
+    docker exec -it notes-api-dev npm run migrate
     ```
 3.  Acesse a API e a documentação:
     - A API estará disponível em: http://localhost:3000
-    - A documentação interativa do Swagger pode ser acessada em: http://localhost:3000/api-docs
+    - A documentação pode ser acessada em: http://localhost:3000/api-docs
+    - O pgAdmin pode ser acessado em: http://localhost:8080
+      - Com as credenciais: `admin@admin.com` e `admin123`
+    - Para conectar ao banco, use:
+        - Host: `db`
+        - Porta: `5432`
+        - Usuário: `devmoreir4`
+        - Senha: `notes123`
 
 ## 📄 Documentação da API
 
